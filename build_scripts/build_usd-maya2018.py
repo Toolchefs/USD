@@ -872,7 +872,7 @@ def InstallTBB(context, force, buildArgs):
         InstallTBB_LinuxOrMacOS(context, force, buildArgs)
 
 def InstallTBB_Windows(context, force, buildArgs):
-    TBB_ROOT_DIR_NAME = "tbb2018_20180822oss"
+    TBB_ROOT_DIR_NAME = "tbb44_20160803oss"
     with CurrentWorkingDirectory(DownloadURL(TBB_URL, context, force, 
         TBB_ROOT_DIR_NAME)):
         # On Windows, we simply copy headers and pre-built DLLs to
