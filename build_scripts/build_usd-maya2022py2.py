@@ -916,7 +916,7 @@ def InstallTBB_LinuxOrMacOS(context, force, buildArgs):
         # location that can be shared by both release and debug USD
         # builds. Plus, the TBB build system builds both versions anyway.
         CopyFiles(context, "build/*_release/libtbb*.*", "lib")
-        CopyFiles(context, "build/*_debug/libtbb*.*", "lib")
+        #CopyFiles(context, "build/*_debug/libtbb*.*", "lib")
         CopyDirectory(context, "include/serial", "include/serial")
         CopyDirectory(context, "include/tbb", "include/tbb")
 
