@@ -487,8 +487,14 @@ def PatchFile(filename, patches, multiLineMatches=False):
 def DownloadFileWithCurl(url, outputFilename):
     # Don't log command output so that curl's progress
     # meter doesn't get written to the log file.
-    Run("curl {progress} -L -o {filename} --ssl-no-revoke {url}".format(
-        progress="-#" if verbosity >= 2 else "-s",
+    if Windows():
+        Run("curl {progress} -L -o {filename} --ssl-no-revoke {url}".format(
+            progress="-#" if verbosity >= 2 else "-s",
+        filename=outputFilename, url=url), 
+        logCommandOutput=False)
+    else:
+        Run("curl {progress} -L -o {filename} {url}".format(
+            progress="-#" if verbosity >= 2 else "-s",
         filename=outputFilename, url=url), 
         logCommandOutput=False)
 
