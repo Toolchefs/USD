@@ -856,14 +856,14 @@ BOOST = Dependency("boost", InstallBoost, BOOST_VERSION_FILE)
 # Intel TBB
 
 if Windows():
-    TBB_URL = "https://github.com/oneapi-src/oneTBB/releases/download/4.4.6/tbb44_20160803oss_win.zip"
+    TBB_URL = "https://github.com/oneapi-src/oneTBB/releases/download/2018_U1/tbb2018_20170919oss_win.zip"
 elif MacOS():
     # On MacOS we experience various crashes in tests during teardown
     # starting with 2018 Update 2. Until we figure that out, we use
     # 2018 Update 1 on this platform.
     TBB_URL = "https://github.com/oneapi-src/oneTBB/archive/2018_U1.tar.gz"
 else:
-    TBB_URL = "https://github.com/oneapi-src/oneTBB/archive/refs/tags/4.4.6.tar.gz"
+    TBB_URL = "https://github.com/oneapi-src/oneTBB/archive/2018_U1.tar.gz"
 
 def InstallTBB(context, force, buildArgs):
     if Windows():
@@ -872,7 +872,7 @@ def InstallTBB(context, force, buildArgs):
         InstallTBB_LinuxOrMacOS(context, force, buildArgs)
 
 def InstallTBB_Windows(context, force, buildArgs):
-    TBB_ROOT_DIR_NAME = "tbb44_20160803oss"
+    TBB_ROOT_DIR_NAME = "tbb2018_20170919oss"
     with CurrentWorkingDirectory(DownloadURL(TBB_URL, context, force, 
         TBB_ROOT_DIR_NAME)):
         # On Windows, we simply copy headers and pre-built DLLs to
