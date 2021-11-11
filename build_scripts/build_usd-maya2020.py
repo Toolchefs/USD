@@ -424,6 +424,8 @@ def RunCMake(context, force, extraArgs = None):
             '-DCMAKE_INSTALL_PREFIX="{instDir}" '
             '-DCMAKE_PREFIX_PATH="{depsInstDir}" '
             '-DCMAKE_BUILD_TYPE={config} '
+            '-DCMAKE_VS_WINDOWS_TARGET_PLATFORM_VERSION=10.0.10586.0 '
+            '-DCMAKE_SYSTEM_VERSION=10.0.10586.0 '                                                         
             '{osx_rpath} '
             '{generator} '
             '{toolset} '
@@ -685,13 +687,13 @@ ZLIB = Dependency("zlib", InstallZlib, "include/zlib.h")
 # boost
 
 if MacOS():
-    BOOST_URL = "https://boostorg.jfrog.io/artifactory/main/release/1.70.0/source/boost_1_70_0.tar.gz"
+    BOOST_URL = "https://downloads.sourceforge.net/project/boost/boost/1.70.0/boost_1_70_0.tar.gz"
     BOOST_VERSION_FILE = "include/boost/version.hpp"
 elif Linux():
     if Python3():
-        BOOST_URL = "https://boostorg.jfrog.io/artifactory/main/release/1.70.0/source/boost_1_70_0.tar.gz"
+        BOOST_URL = "https://downloads.sourceforge.net/project/boost/boost/1.70.0/boost_1_70_0.tar.gz"
     else:
-        BOOST_URL = "https://boostorg.jfrog.io/artifactory/main/release/1.66.0/source/boost_1_66_0.tar.gz"
+        BOOST_URL = "https://downloads.sourceforge.net/project/boost/boost/1.70.0/boost_1_70_0.tar.gz"
     BOOST_VERSION_FILE = "include/boost/version.hpp"
 elif Windows():
     # The default installation of boost on Windows puts headers in a versioned 
@@ -701,7 +703,7 @@ elif Windows():
     #
     # boost 1.70 is required for Visual Studio 2019. For simplicity, we use
     # this version for all older Visual Studio versions as well.
-    BOOST_URL = "https://boostorg.jfrog.io/artifactory/main/release/1.70.0/source/boost_1_70_0.tar.gz"
+    BOOST_URL = "https://downloads.sourceforge.net/project/boost/boost/1.70.0/boost_1_70_0.tar.gz"
     BOOST_VERSION_FILE = "include/boost-1_70/boost/version.hpp"
 
 def InstallBoost_Helper(context, force, buildArgs):
@@ -859,7 +861,7 @@ elif MacOS():
     # On MacOS we experience various crashes in tests during teardown
     # starting with 2018 Update 2. Until we figure that out, we use
     # 2018 Update 1 on this platform.
-    TBB_URL = "https://github.com/oneapi-src/oneTBB/archive/2018_U1.tar.gz"
+    TBB_URL = "https://github.com/oneapi-src/oneTBB/archive/2018_U6.tar.gz"
 else:
     TBB_URL = "https://github.com/oneapi-src/oneTBB/archive/2018_U6.tar.gz"
 
