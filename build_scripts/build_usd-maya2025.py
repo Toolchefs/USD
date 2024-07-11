@@ -697,9 +697,9 @@ if MacOS():
     BOOST_VERSION_FILE = "include/boost/version.hpp"
 elif Linux():
     if Python3():
-        BOOST_URL = "https://downloads.sourceforge.net/project/boost/boost/1.82.0/boost_1_82_0.tar.gz"
+        BOOST_URL = "https://github.com/boostorg/boost/releases/download/boost-1.82.0/boost-1.82.0.tar.gz"
     else:
-        BOOST_URL = "https://downloads.sourceforge.net/project/boost/boost/1.82.0/boost_1_82_0.tar.gz"
+        BOOST_URL = "https://github.com/boostorg/boost/releases/download/boost-1.82.0/boost-1.82.0.tar.gz"
     BOOST_VERSION_FILE = "include/boost/version.hpp"
 elif Windows():
     # The default installation of boost on Windows puts headers in a versioned 
@@ -709,8 +709,8 @@ elif Windows():
     #
     # boost 1.70 is required for Visual Studio 2019. For simplicity, we use
     # this version for all older Visual Studio versions as well.
-    BOOST_URL = "https://downloads.sourceforge.net/project/boost/boost/1.80.0/boost_1_82_0.tar.gz"
-    BOOST_VERSION_FILE = "include/boost-1_72/boost/version.hpp"
+    BOOST_URL = "https://github.com/boostorg/boost/releases/download/boost-1.82.0/boost-1.82.0.tar.gz"
+    BOOST_VERSION_FILE = "include/boost-1_82/boost/version.hpp"
 
 def InstallBoost_Helper(context, force, buildArgs):
     # Documentation files in the boost archive can have exceptionally
